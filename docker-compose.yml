@@ -1,29 +1,33 @@
 version: "3.3"
     
 services:
-  # microservice1:
-  #   image: test-1
-  #   depends_on: 
-  #     - microservice2
-  #   # restart: always
-  #   ports: 
-  #     - 3500:3500
-  #   environment:
-  #     PATH: microservice2
-  #     PORT: 3500:3500
+  client:
+    image: test_1
+    # depends_on: 
+    #   - server
+    restart: always
+    ports: 
+      - 3500:3500
+    environment:
+      PORT: 3500
+      server: 4002
       
     
-  microservice2:
-    image: test-2
+  server:
+    image: test_2
     # restart: always
     ports: 
-      - 4002:4002
+      - '4002:4002'
     environment:
       MONGOIP: db
       MONGOPORT: 27017
-      PORT: 4002:4002
+      PORT: 4002
     
   db:
     image: mongo:latest
     ports:
       - 27017:27017
+
+
+
+            

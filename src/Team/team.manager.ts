@@ -1,10 +1,12 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
 const env = require("dotenv").config();
+import * as config from './../config';
 
 
-// const PATH = 'http://localhost:4001/team';
-const PATH = process.env.PATH;
+
+const PATH = 'http://server:4002/team';
+// const PATH =  "http://localhost:"+config.server;
 
 // Post new team
 export const postTeam = async (req: Request, res: Response) => {

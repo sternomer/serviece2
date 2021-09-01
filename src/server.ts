@@ -14,4 +14,5 @@ app.use('/api/service2/team', teamRouter);
 
 app.listen(config.PORT, () => {   
   console.log('listening to port 3500');
+  console.log(config.server)
 });

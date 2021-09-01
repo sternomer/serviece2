@@ -1,5 +1,14 @@
-FROM node:14-alpine
-COPY  ["package.json","package-lock.json","./"]
+
+FROM node:10
+
+COPY package*.json ./
+
 RUN npm install
+
 COPY . .
-ENTRYPOINT npm start
+
+RUN npm run build
+
+EXPOSE 3500
+
+CMD ["npm","start"]
